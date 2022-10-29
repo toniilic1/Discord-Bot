@@ -1,13 +1,15 @@
 import hikari
 import lightbulb
+from datetime import date
 
 plugin = lightbulb.Plugin('bot_info')
+today = date.today()
 
 @plugin.command
 @lightbulb.command('info', 'Get information about Odin')
 @lightbulb.implements(lightbulb.SlashCommand)
 async def info(ctx):
-    await ctx.respond('Version: 0.1\nMade by: Toni\nAPIs used: Hikari and Lightbulb\nGithub links: https://github.com/hikari-py/hikari and https://github.com/hikari-py/hikari')
+    await ctx.respond('Version: 0.1\nMade by: Toni\nAPIs used: Hikari and Lightbulb\nGithub links:https://github.com/hikari-py/hikari and https://github.com/hikari-py/hikari' + today)
 
 
 def load(bot):
