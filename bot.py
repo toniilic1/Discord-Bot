@@ -1,14 +1,14 @@
-import lightbulb  # development branch 
-import hikari
-from tokens import token_id, guild_id
+import discord
+from tokens import token_id
 
-#must be granted bot, commands and administrator rights
-# use token id and guild id of your server for privacy
-bot = lightbulb.BotApp(
-    token=token_id,
-    default_enabled_guilds=(guild_id)#Register server with an ID so the commands are faster
-)
+bot = discord.Bot()
 
+@bot.event
+async def on_ready():
+    print(f"{bot.user} has risen from the dead")
 
-bot.load_extensions('extensions.ping_pong', 'extensions.bot_info')
-bot.run()
+@bot.slash_command(name = 'hello', description = "Say hello to the bot")
+async def hello(ctx):
+    await ctx.respond("Hey!")
+
+bot.run(token_id)
