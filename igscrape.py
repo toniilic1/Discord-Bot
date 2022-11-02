@@ -1,16 +1,21 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = "https://www.instant-gaming.com/en/search/"
+class TrendingSales:
 
-page = requests.get(url)
-doc = BeautifulSoup(page.text, "html.parser")
+    def getTopTwenty():
+        url = "https://www.instant-gaming.com/en/search/"
 
-info = doc.find(class_="search listing-games")
+        page = requests.get(url)
+        doc = BeautifulSoup(page.text, "html.parser")
 
-gametext = [games.get_text() for games in info.find_all(class_=["discount","title", "price"])]
+        info = doc.find(class_="search listing-games")
 
-d = {'list_{}'.format(i): e for i, e in enumerate(zip(*[iter(gametext)]*3), 1)}
+        gametext = [games.get_text() for games in info.find_all(class_=["discount","title", "price"])]
 
-for i in range(1,20):
-    print(d['list_{}'.format(i)])
+        d = {'list_{}'.format(i): e for i, e in enumerate(zip(*[iter(gametext)]*3), 1)}
+
+        for i in range(1,20):
+            print(d['list_{}'.format(i)])
+
+TrendingSales.getTopTwenty()
