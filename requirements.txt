@@ -1,3 +1,2 @@
-hikari==2.0.0.dev111
-hikari-lightbulb @ git+https://github.com/tandemdude/hikari-lightbulb.git@9937494187845349c4dde52d418ed7fad2db4d6c
+pycord==2.2.2
 beautifulsoup4==4.11.1
