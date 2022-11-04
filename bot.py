@@ -16,9 +16,8 @@ async def keys(ctx):
     embed = discord.Embed(
         title="Instant Gaming Sales",
         description="List of top ten most trending games on [Instant Gaming](https://www.instant-gaming.com/en/search/)",
-        color=discord.Colour.blurple(), # Pycord provides a class with default colors you can choose from
+        color=discord.Colour.blurple()
     )
-
     for games in sales:
         embed.add_field(name=f"#{i}" ,value=("*%s*, %s, **%s**" % games), inline=False)
         i+=1
@@ -29,4 +28,4 @@ async def keys(ctx):
     await ctx.respond("Request proccesed.", embed=embed)
 
 
-bot.run(token_id)
+bot.run(token_id) # bot token

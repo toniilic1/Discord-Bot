@@ -22,12 +22,3 @@ class TrendingSales:
 
 
         return topList
-
-
-#a = TrendingSales.getTopTen()
-
-#for games in a:
-    #print(games[0], games[1], games[2])
-
-#for games in a:
-    #print("%s, %s, %s" % games)
