@@ -17,19 +17,17 @@ class TrendingSales:
     
         topList = []
 
-        for i in range(1,20):
+        for i in range(1,11):
             topList.append(getGames['list_{}'.format(i)])
-        
 
-        """
-        for i in range (0, 19):
-            x = 0
-            for x in range(0, 3):
-                yield topList[i][x]
-        """
 
-        
         return topList
 
-#a = str(TrendingSales.getTopTwenty())
-#print(a)
+
+#a = TrendingSales.getTopTen()
+
+#for games in a:
+    #print(games[0], games[1], games[2])
+
+#for games in a:
+    #print("%s, %s, %s" % games)
