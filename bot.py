@@ -1,5 +1,5 @@
 import discord
-from tokens import token_id
+from tokens import token_id # make a python file named tokens.py and a variable inside it containing your bot id
 from igscrape import TrendingSales
 
 bot = discord.Bot()
