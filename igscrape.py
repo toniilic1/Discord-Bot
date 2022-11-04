@@ -3,7 +3,7 @@ import requests
 
 class TrendingSales:
 
-    def getTopTwenty():
+    def getTopTen():
         url = "https://www.instant-gaming.com/en/search/"
 
         page = requests.get(url)
@@ -20,4 +20,16 @@ class TrendingSales:
         for i in range(1,20):
             topList.append(getGames['list_{}'.format(i)])
         
+
+        """
+        for i in range (0, 19):
+            x = 0
+            for x in range(0, 3):
+                yield topList[i][x]
+        """
+
+        
         return topList
+
+#a = str(TrendingSales.getTopTwenty())
+#print(a)
