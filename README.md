@@ -12,6 +12,10 @@ A lot more features are planned and upcoming.
 
 Made with Pycord.
 
+How it looks:
+
+![Screenshot](slashkeys.png)
+
 ## Installation
 1. Clone the project:
 - ```git clone https://github.com/toniilic1/Discord-Bot.git```
