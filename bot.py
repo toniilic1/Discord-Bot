@@ -8,7 +8,13 @@ async def on_ready():
     print(f"{bot.user} has risen from the dead")
 
 
-bot.load_extension('cogs.instantgaming')
 
+cogs_list = [
+    'instantgaming',
+    'steamcharts'
+]
+
+for cog in cogs_list:
+    bot.load_extension(f'cogs.{cog}')
 
 bot.run(token_id) # bot token
