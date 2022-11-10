@@ -4,7 +4,7 @@ import requests
 class TrendingSales:
 
     def getTopTen():
-        url = "https://www.instant-gaming.com/en/search/"
+        url = "https://www.instant-gaming.com/en/search/" #test for correct url
 
         page = requests.get(url)
         doc = BeautifulSoup(page.text, "html.parser")
@@ -18,7 +18,7 @@ class TrendingSales:
         topList = []
 
         for i in range(1,11):
-            topList.append(getGames['list_{}'.format(i)])
+            topList.append(getGames['list_{}'.format(i)]) #test for 3 elements in every list
 
 
         return topList
