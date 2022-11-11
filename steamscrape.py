@@ -1,10 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 
-class TrendingSales:
+class SteamTrends:
 
     def getTopTen():
-        url = "https://store.steampowered.com/explore/new/" #test for correct url
+        global url
+        global topList
+        
+        url = "https://store.steampowered.com/explore/new/"
 
         page = requests.get(url)
         doc = BeautifulSoup(page.text, "html.parser")

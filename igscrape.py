@@ -4,12 +4,15 @@ import requests
 class TrendingSales:
 
     def getTopTen():
+        global url
+        global topList
+
         url = "https://www.instant-gaming.com/en/search/" #test for correct url
 
         page = requests.get(url)
         doc = BeautifulSoup(page.text, "html.parser")
 
-        info = doc.find(class_="search listing-games")
+        info = doc.find(class_="search listing-games") #test if divs on url
 
         gametext = [games.get_text() for games in info.find_all(class_=["discount","title", "price"])]
 

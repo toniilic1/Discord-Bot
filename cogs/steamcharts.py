@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from steamscrape import TrendingSales
+from steamscrape import SteamTrends
 
 
 class ScrapeSteam(commands.Cog):
@@ -10,7 +10,7 @@ class ScrapeSteam(commands.Cog):
 
     @discord.slash_command()
     async def charts(self, ctx):
-        sales = TrendingSales.getTopTen()
+        sales = SteamTrends.getTopTen()
         i = 1
         embed = discord.Embed(
             title="Steam New Trending",
