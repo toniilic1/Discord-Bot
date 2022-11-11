@@ -8,6 +8,8 @@
 ## Introduction
 Currently has a function to scrape top 10 trending games from instant gaming and return it in a embeded message after using a slash command /keys.
 
+Using pytest test the code responsible for scraping Instant Gaming and Steam by typing ```pytest``` in the folders commands line.
+
 A lot more features are planned and upcoming.
 
 Made with Pycord.
