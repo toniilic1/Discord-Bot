@@ -31,3 +31,6 @@ class SteamTrends:
             topList.append(getGames['list_{}'.format(i)]) #test for 3 elements in every list
 
         return topList
+
+
+#print(SteamTrends.getTopTen())

@@ -25,3 +25,6 @@ class TrendingSales:
 
 
         return topList
+
+
+#print(TrendingSales.getTopTen())
