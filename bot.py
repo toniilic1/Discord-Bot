@@ -11,7 +11,7 @@ async def on_ready():
 
 cogs_list = [
     'instantgaming',
-    'steamcharts'
+    'allkeyshop'
 ]
 
 for cog in cogs_list:
