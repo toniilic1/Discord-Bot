@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from allkeys import AllKeySales
+from allkeys_selenium import AllKeySales
 
 
 class ScrapeAllKeyShop(commands.Cog):
@@ -10,7 +10,7 @@ class ScrapeAllKeyShop(commands.Cog):
 
     @discord.slash_command()
     async def allkeys(self, ctx, game):
-        sales = AllKeySales.KeySales(game)
+        sales = AllKeySales.KeySales(str(game))
         i = 1
         embed = discord.Embed(
             title=f"{game} key sales on AllKeyShop",

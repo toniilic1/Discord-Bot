@@ -1,37 +1,29 @@
 from bs4 import BeautifulSoup
-import requests
-
 from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.common.by import By
 
-
-#attempt to scrape using requests only, unfortunately it needs a javascript initiation
-
 class AllKeySales:
     def KeySales(game):
-        """
+        
         myOptions = ChromeOptions()
         myOptions.add_argument('start-maximized')
         myOptions.add_argument('--lang=en-GB')
-        myOptions.add_experimental_option('detach', True)
-
+        myOptions.headless = True
+        #myOptions.add_experimental_option('detach', True)
+    
         driver = Chrome(options=myOptions)
         driver.set_window_size(1920, 1080)
-        """
-        
-        search_url = f'https://www.allkeyshop.com/blog/catalogue/search-{game}'
 
-        page = requests.get(search_url)
-        soup = BeautifulSoup(page.text, 'html.parser')
+        driver.get(f'https://www.allkeyshop.com/blog/catalogue/search-{game}')
 
-        a_href = soup.find("a",{"class":"search-results-row-link"}).get("href")
-        str(a_href)
+        searchgame = driver.find_element(By.CLASS_NAME, "search-results-row-link")
+        searchgame.click()
 
-        nextpage = requests.get(a_href)
-        nextsoup = BeautifulSoup(nextpage.text, 'html.parser')
+        html = driver.page_source
 
-        
-        info = nextsoup.find(class_="offers-table x-offers")
+        soup = BeautifulSoup(html, "html.parser")
+
+        info = soup.find(class_="offers-table x-offers")
 
         topList = []
 
@@ -45,13 +37,11 @@ class AllKeySales:
             topList.append(buyerPrice[i])
 
         getGames = {'list_{}'.format(i): e for i, e in enumerate(zip(*[iter(topList)]*2), 1)}
-
-        #print(nextsoup.prettify)
-        print(a_href)
         
 
-        #return info
+        driver.quit()
+
+        return getGames
 
 
-AllKeySales.KeySales("astroneer")
-#print(AllKeySales.KeySales("astroneer"))
+#print(AllKeySales.KeySales("spiderman"))
